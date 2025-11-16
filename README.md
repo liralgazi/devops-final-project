@@ -35,7 +35,9 @@ docker build -t flask-hello-world ./phase1
 ```
 
 # Run the container
+```bash
 docker run -p 5000:5000 flask-hello-world
+```
 Visit: http://localhost:5000
 
 🔹 Option 2: Docker Compose
