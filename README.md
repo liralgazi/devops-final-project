@@ -50,13 +50,13 @@ docker build -t flask-hello-world ./phase1
 ```bash
 docker run -p 5000:5000 flask-hello-world
 ```
-Visit: http://localhost:5000
 
 ### 🔹 Option 2: Run from Docker Hub
 ```bash
 docker pull liroosh/flask-hello-world:latest
 docker run -p 5000:5000 liroosh/flask-hello-world:latest
 ```
+
 Visit: http://localhost:5000
 
 ## ☸️ Deploy on Kubernetes
