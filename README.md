@@ -46,7 +46,7 @@ phase1/
 docker build -t flask-hello-world ./phase1
 ```
 
-# Run the container
+#### Run the container
 ```bash
 docker run -p 5000:5000 flask-hello-world
 ```
