@@ -77,6 +77,12 @@ kubectl apply -f flask-cronjob.yaml
 minikube service flask-service
 ```
 
+## ✅ Health & Monitoring
+
+- HPA: Scales based on CPU usage
+- Probes: Ensures pods are healthy and ready
+- ConfigMap/Secret: Separates config and sensitive data
+- CronJob: Automates recurring tasks
 
 ✅ Expected Output
 When the app is running, visit the local address to see:
