@@ -67,7 +67,6 @@ minikube addons enable metrics-server
 # load image to minikube
 minikube image load liroosh/flask-hello-world:latest
 # apply all K8S menifests
-<<<<<<< HEAD
 kubectl apply -f k8s/config.yaml
 kubectl apply -f k8s/secret.yaml
 kubectl apply -f k8s/deployment.yaml
