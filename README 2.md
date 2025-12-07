@@ -67,14 +67,14 @@ minikube addons enable metrics-server
 # load image to minikube
 minikube image load liroosh/flask-hello-world:latest
 # apply all K8S menifests
-kubectl apply -f k8s/config.yaml
-kubectl apply -f k8s/secret.yaml
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
-kubectl apply -f k8s/hpa.yaml
-kubectl apply -f k8s/cronjob.yaml
+kubectl apply -f flask-config.yaml
+kubectl apply -f flask-secret.yaml
+kubectl apply -f flask-deployment.yaml
+kubectl apply -f flask-service.yaml
+kubectl apply -f flask-hpa.yaml
+kubectl apply -f flask-cronjob.yaml
 # expose the service
-minikube service k8s/service
+minikube service flask-service
 ```
 
 ## ✅ Health & Monitoring
