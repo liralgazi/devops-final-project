@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  my-app:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2026-01-09T16:26:28.263108+02:00"
+    description: A simple Flask app deployed with Helm
+    digest: 5cd1c68dc90974dac9ac3c14a23223f54ef876aefc2899d5e3364e678713ab6b
+    name: my-app
+    type: application
+    urls:
+    - https://liralgazi.github.io/devops-final-project/my-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-01-09T16:26:28.262459+02:00"
