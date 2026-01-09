@@ -92,3 +92,4 @@ Hello, World!
 👩‍💻 Author
 Lir Algazi
  Logo coming soon
+This is the official version
