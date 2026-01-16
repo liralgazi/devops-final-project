@@ -2,35 +2,28 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "liroosh/flask-hello-world:latest"
+        IMAGE_NAME = "liroosh/flask-hello-world"
     }
 
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building Docker image...'
+                echo '🔨 Building Docker image...'
                 sh 'docker build -t $IMAGE_NAME .'
             }
         }
 
-        stage('Test') {
+        stage('Load to Minikube') {
             steps {
-                echo 'Testing... (optional)'
-                // אם אין בדיקות כרגע, אפשר לדלג או להוסיף בעתיד
-            }
-        }
-
-        stage('Push to Minikube') {
-            steps {
-                echo 'Loading image into Minikube...'
+                echo '📦 Loading image to Minikube...'
                 sh 'minikube image load $IMAGE_NAME'
             }
         }
 
         stage('Deploy with Helm') {
             steps {
-                echo 'Deploying with Helm...'
-                sh 'helm upgrade --install my-flask my-app'
+                echo '🚀 Deploying with Helm...'
+                sh 'helm upgrade --install my-flask ./my-app'
             }
         }
     }
