@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: liroosh/flask-hello-world
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: []
+
+httpRoute:
+  enabled: false
