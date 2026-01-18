@@ -23,19 +23,8 @@ pipeline {
         stage('Deploy with Helm') {
             steps {
                 echo '🚀 Deploying with Helm...'
-                sh 'helm upgrade --install my-flask ./my-app'
+                sh 'helm upgrade --install my-flask my-app'
             }
         }
-	stage('Debug') {
-    	steps {
-        	sh 'echo "PWD:" && pwd'
-        	sh 'echo "FILES:" && ls -lah'
-        	sh 'which docker || echo "🚫 docker not found"'
-        	sh 'docker version || echo "🚫 docker error"'
-        	sh 'helm version || echo "🚫 helm not found"'
-        	sh 'minikube status || echo "🚫 minikube error"'
-    	}
-	}
-
     }
 }
