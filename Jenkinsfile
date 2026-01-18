@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "liroosh/flask-hello-world"
+        IMAGE_NAME = "liroosh/flask-hello-world:latest"
     }
 
     stages {
@@ -13,17 +13,14 @@ pipeline {
             }
         }
 
-        stage('Load to Minikube') {
-            steps {
-                echo '📦 Loading image to Minikube...'
-                sh 'minikube image load $IMAGE_NAME'
-            }
-        }
-
         stage('Deploy with Helm') {
             steps {
-                echo '🚀 Deploying with Helm...'
-                sh 'helm upgrade --install my-flask my-app'
+                echo '🚀 Deploying to Minikube with Helm...'
+                sh '''
+                helm upgrade --install my-flask ./my-app \
+                  --set image.repository=liroosh/flask-hello-world \
+                  --set image.tag=latest
+                '''
             }
         }
     }
