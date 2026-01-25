@@ -42,15 +42,6 @@ pipeline {
             }
         }
 
-        stage('Load Image to Minikube') {
-            steps {
-                sh '''
-                  echo "=== Loading image into Minikube ==="
-                  minikube image load ${IMAGE_NAME}:${IMAGE_TAG}
-                '''
-            }
-        }
-
         stage('Deploy with Helm') {
             steps {
                 sh '''

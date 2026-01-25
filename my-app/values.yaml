@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: liroosh/flask-hello-world
+  repository: flask-app
   tag: latest
   pullPolicy: IfNotPresent
 service:
