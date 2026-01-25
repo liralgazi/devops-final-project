@@ -1,25 +1,19 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = "liroosh/flask-hello-world:latest"
-    }
-
     stages {
-        stage('Build Docker Image') {
+        stage('Checkout') {
             steps {
-                echo '🔨 Building Docker image...'
-                sh 'docker build -t $IMAGE_NAME .'
+                checkout scm
             }
         }
 
-        stage('Deploy with Helm') {
+        stage('Sanity') {
             steps {
-                echo '🚀 Deploying to Minikube with Helm...'
                 sh '''
-                helm upgrade --install my-flask ./my-app \
-                  --set image.repository=liroosh/flask-hello-world \
-                  --set image.tag=latest
+                  echo "Running inside Jenkins"
+                  kubectl version --client
+                  helm version
                 '''
             }
         }
