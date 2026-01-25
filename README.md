@@ -1,4 +1,4 @@
-# 🚀 DevOps Final Project (Phase 3)
+# 🚀 DevOps Final Project 
 
 A simple Dockerized **Python Flask** app deployed to **Kubernetes (Minikube)** using **Helm** and automated by **Jenkins**.
 
