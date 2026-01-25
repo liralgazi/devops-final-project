@@ -1,24 +1,54 @@
 replicaCount: 1
-
 image:
   repository: liroosh/flask-hello-world
   tag: latest
   pullPolicy: IfNotPresent
-
 service:
-  type: ClusterIP
+  type: NodePort
   port: 5000
-
+  nodePort: 30007
+config:
+  enabled: true
+  name: flask-config
+  data:
+    APP_ENV: production
+secret:
+  enabled: true
+  name: flask-secret
+  data:
+    SECRET_KEY: supersecret
+probes:
+  enabled: true
+  readiness:
+    path: /
+    port: 5000
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  liveness:
+    path: /
+    port: 5000
+    initialDelaySeconds: 15
+    periodSeconds: 20
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 50
+cronjob:
+  enabled: true
+  name: hello-cronjob
+  schedule: '*/1 * * * *'
+  image: busybox
+  command:
+  - /bin/sh
+  - -c
+  - date; echo "Hello from your cron job!"
+  restartPolicy: OnFailure
 resources: {}
-
 nodeSelector: {}
-
 tolerations: []
-
-affinity: []
-
+affinity: {}
 httpRoute:
   enabled: false
-
 ingress:
   enabled: false
